@@ -1,12 +1,7 @@
-import java.util.Random;
 import java.util.Scanner;
-
-
-
 
 public class GoldMineProblem {
 
-    
     public static void main(String[] args) {
         System.out.println("Welcome to Gold Mine Problem :)");
         System.out.println("Enter the number of Levels :  "); // Number of levels implies the number of rows
@@ -28,7 +23,6 @@ public class GoldMineProblem {
         
     }
     
-    
     public static int mostGoldPoints(int[][] goldTable, int n, int m){
         
        // Create a dummy array goldPoints[][] of same size as goldTable[n][m] 
@@ -49,12 +43,10 @@ public class GoldMineProblem {
                 
                 // Gold collected on going to the cell to right up (/)
                 int right_up = (i==0 || j == m-1)? 0:goldPoints[i-1][j+1];
-                
-                
+ 
                 // Gold collected on going to the cell to right down (\)
                 int right_down = (i == n-1 || j == m-1)? 0:goldPoints[i+1][j+1];
-                
-                
+
                 // The max amount of gold collected will be the max value in first column of all row
                 goldPoints[i][j] = goldTable[i][j]+Math.max(right, Math.max(right_up, right_down));
                 
@@ -64,15 +56,11 @@ public class GoldMineProblem {
         
         int res = goldPoints[0][0];
         
-        for(int i=0; i<n;i++){
+        for(int i=0; i<n;i++)
             res=Math.max(res, goldPoints[i][0]);
-            
-        }
-        
+           
         return res;
-        
 
     }
-    
-    
+
 }
